@@ -1,9 +1,69 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>register</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div id="container">
+    <div id="beer-container" class="container">
+      <div class="mug">
+        <div class="beer"></div>
+      </div>
+      <div class="bubble"></div>
+      <div class="small-bubbles"></div>
+      <div class="drip"></div>
+      <div class="beer-bg-circle"></div>
+    </div>
 
+    <div class="form">
+      <form (ngSubmit)="signUp()" [formGroup]="registerForm">
+        <ion-row>
+          <ion-col>
+            <ion-input type="text" placeholder="Nome" formControlName="name" required class="inputFormOrange">
+              <ion-icon name="person-outline"></ion-icon>
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input type="text" placeholder="E-mail" formControlName="email" required class="inputFormOrange">
+              <ion-icon name="person-outline"></ion-icon>
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input type="text" placeholder="CPF" formControlName="cpf" required class="inputFormOrange">
+              <ion-icon name="person-outline"></ion-icon>
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input type="password" placeholder="Password" formControlName="password" required class="inputFormOrange">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="chkRow">
+              <ion-checkbox color="dark"></ion-checkbox>
+              <ion-label class="chkLabel">I Accept the <a [routerLink]="['/use']">Terms of Service</a></ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" type="submit" color="light" fill="solid">REGISTER</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </div>
+  </div>
 </ion-content>

@@ -36,6 +36,10 @@ $bg: linear-gradient(-30deg, darken($bubble, 10%) 60%, $white-bg 40%);
   height: $h;
 }
 
+.form {
+  width: 100vw;
+}
+
 .container {
   position: relative;
   margin-top: 30vh;
@@ -217,4 +221,27 @@ body {
     top: -70px;
     left: -17vw;
     z-index: 0;
+}
+
+.inputFormOrange {
+  border: 1px solid white;
+  border-radius: 20vw;
+  font-family: sans-serif;
+  color: white;
+}
+
+.chkLabel {
+  color: white;
+  margin-left: 10px;
+}
+
+.chkRow {
+  display: flex;
+  align-items: center;
+  margin-left: 5vw;
+}
+
+ion-icon {
+  margin-left: 5vw;
+  margin-right: 3vw;
 }

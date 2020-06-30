@@ -1,7 +1,7 @@
 import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup
   loginError: string
 
-  constructor(private auth: AuthService, fb: FormBuilder) {    
+  constructor(private auth: AuthService, fb: FormBuilder, private router: Router) {    
     this.loginForm = fb.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
     };
 
     this.auth.signInWithEmail(credentials).then(
-      () => console.log('logado'),
+      () => this.router.navigateByUrl('/home'),
       error => {
         this.loginError = error.message
         console.log(error.message)

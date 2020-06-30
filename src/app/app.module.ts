@@ -13,6 +13,7 @@ import { AngularFireModule } from 'angularfire2'
 import { AngularFireAuth } from 'angularfire2/auth'
 import { firebaseConfig } from '../environments/environment'
 import { AuthService } from './services/auth.service'
+import { AngularFirestore} from 'angularfire2/firestore'
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +29,8 @@ import { AuthService } from './services/auth.service'
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AngularFireAuth,
-    AuthService
+    AuthService,
+    AngularFirestore
   ],
   bootstrap: [AppComponent]
 })

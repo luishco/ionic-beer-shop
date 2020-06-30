@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth'
 import * as firebase from 'firebase/app'
 import AuthProvider = firebase.auth.AuthProvider
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private user: firebase.User
+  private firestore = firebase.firestore()
 
   signInWithEmail(credentials) {
     console.log('Sign in with email');
@@ -20,7 +22,23 @@ export class AuthService {
   signUp(credentials) {
     return this.afAuth.auth.createUserWithEmailAndPassword(
       credentials.email, credentials.password
-    )
+    ).then((registeredUser) => {
+      return this.updateProfile({
+        name: credentials.name,
+        photoUrl: null,
+        cpf: credentials.cpf
+      })
+    })
+  }
+
+  updateProfile(profile) {
+    let userOptions = {
+      uuid: this.user.uid,
+      name: profile.name,
+      photoUrl: profile.photoUrl,
+      cpf: profile.cpf
+    }
+    return this.firestore.collection('usersCollection').doc(this.user.uid).set(userOptions);
   }
 
   get authenticated(): boolean { return this.user !== null; }

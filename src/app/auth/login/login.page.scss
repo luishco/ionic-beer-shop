@@ -9,17 +9,6 @@
     flex-direction: column;
 }
 
-.form {
-    width: 100vw;
-}
-
-.inputLogin {
-    border: 1px solid white;
-    border-radius: 20vw;
-    font-family: sans-serif;
-    color: white;
-}
-
 #createAccount {
     margin-bottom: 2vh;
 }
@@ -31,9 +20,4 @@
 
 .form-error {
     text-align: center;
-}
-
-ion-icon {
-    margin-left: 5vw;
-    margin-right: 3vw;
 }

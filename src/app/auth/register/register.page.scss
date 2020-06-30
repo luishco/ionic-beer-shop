@@ -1,0 +1,21 @@
+@import '../../../global.scss';
+
+#container {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(-30deg, #ffb916 60%, #F5F5F5 40%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    position: absolute;
+}
+
+.form {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
