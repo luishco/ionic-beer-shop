@@ -1,0 +1,7 @@
+{
+  "name": "ionic-beer-shop",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
