@@ -12,22 +12,33 @@
 
     <div class="form">
       <form (ngSubmit)="login()" [formGroup]="loginForm">
-        <ion-item>
-          <ion-label position="floating" expand="block">E-mail</ion-label>
-          <ion-input type="text" formControlName="email" required></ion-input>
-        </ion-item>
-    
-        <ion-item>
-          <ion-label position="floating">Password</ion-label>
-          <ion-input type="password" formControlName="password" required></ion-input>
-        </ion-item>
+        <ion-row>
+          <ion-col>
+            <ion-input type="text" placeholder="E-mail" formControlName="email" required class="inputLogin">
+              <ion-icon name="person-outline"></ion-icon>
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input type="password" placeholder="Password" formControlName="password" required class="inputLogin">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+            </ion-input>
+          </ion-col>
+        </ion-row>
     
         <ion-row>
           <ion-col>
-            <ion-button expand="block" type="submit">Sign In</ion-button>
+            <ion-button expand="block" type="submit" color="light" fill="solid">Sign In</ion-button>
           </ion-col>
         </ion-row>
+
+        <div class="form-error">{{loginError}}</div>
       </form>
+    </div>
+
+    <div id="createAccount">
+      <a [routerLink]="['/register']">Not a member? Create Account</a>
     </div>
   </div>
 </ion-content>

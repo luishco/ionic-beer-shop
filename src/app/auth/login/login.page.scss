@@ -2,9 +2,9 @@
 
 #container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     height: 100vh;
-    background: linear-gradient(-30deg, darken($bubble, 10%) 60%, $white-bg 40%);
+    background: $bg;
     align-items: center;
     flex-direction: column;
 }
@@ -13,3 +13,27 @@
     width: 100vw;
 }
 
+.inputLogin {
+    border: 1px solid white;
+    border-radius: 20vw;
+    font-family: sans-serif;
+    color: white;
+}
+
+#createAccount {
+    margin-bottom: 2vh;
+}
+
+#createAccount a {
+    text-decoration: none;
+    color: white;
+}
+
+.form-error {
+    text-align: center;
+}
+
+ion-icon {
+    margin-left: 5vw;
+    margin-right: 3vw;
+}

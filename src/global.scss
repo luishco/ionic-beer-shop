@@ -30,6 +30,7 @@ $white-bg: #F5F5F5;
 $beer: #FFD36D;
 $bubble: darken(#FFD36D, 7%);
 $jet: #292929;
+$bg: linear-gradient(-30deg, darken($bubble, 10%) 60%, $white-bg 40%);
 @mixin size($w: 100%, $h: 100%) {
   width: $w;
   height: $h;
