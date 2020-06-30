@@ -1,0 +1,33 @@
+<ion-content>
+  <div id="container">
+    <div id="beer-container" class="container">
+      <div class="mug">
+        <div class="beer"></div>
+      </div>
+      <div class="bubble"></div>
+      <div class="small-bubbles"></div>
+      <div class="drip"></div>
+      <div class="beer-bg-circle"></div>
+    </div>
+
+    <div class="form">
+      <form (ngSubmit)="login()" [formGroup]="loginForm">
+        <ion-item>
+          <ion-label position="floating" expand="block">E-mail</ion-label>
+          <ion-input type="text" formControlName="email" required></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" formControlName="password" required></ion-input>
+        </ion-item>
+    
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" type="submit">Sign In</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </div>
+  </div>
+</ion-content>

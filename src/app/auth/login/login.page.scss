@@ -1,0 +1,15 @@
+@import '../../../global.scss';
+
+#container {
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;
+    background: linear-gradient(-30deg, darken($bubble, 10%) 60%, $white-bg 40%);
+    align-items: center;
+    flex-direction: column;
+}
+
+.form {
+    width: 100vw;
+}
+
