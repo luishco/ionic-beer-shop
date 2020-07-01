@@ -32,7 +32,9 @@ export class LoginPage implements OnInit {
     };
 
     this.auth.signInWithEmail(credentials).then(
-      () => this.router.navigateByUrl('/home'),
+      (response) => {
+       this.router.navigateByUrl('/home')
+      },
       error => {
         this.loginError = error.message
         console.log(error.message)

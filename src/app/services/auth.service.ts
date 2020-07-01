@@ -33,12 +33,20 @@ export class AuthService {
 
   updateProfile(profile) {
     let userOptions = {
-      uuid: this.user.uid,
       name: profile.name,
       photoUrl: profile.photoUrl,
       cpf: profile.cpf
     }
-    return this.firestore.collection('usersCollection').doc(this.user.uid).set(userOptions);
+    return this.firestore.collection('usersCollection').doc(this.user.email).set(userOptions);
+  }
+
+  retrieveUserData() {
+    let userRef = this.firestore.collection('usersCollection').doc(this.user.email);
+    return userRef.get().then(doc => {
+      if(!doc.exists)
+        return;
+      return doc.data()
+    })
   }
 
   get authenticated(): boolean { return this.user !== null; }

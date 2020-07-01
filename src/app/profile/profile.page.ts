@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+  constructor(private auth: AuthService) { }
+  user = {}
 
-  constructor() { }
-
-  ngOnInit() {
+  async ngOnInit() {
+    this.user = await this.auth.retrieveUserData();
   }
 
 }

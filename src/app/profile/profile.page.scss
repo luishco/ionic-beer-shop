@@ -2,18 +2,16 @@
 
 #container {
     display: flex;
-    justify-content: space-between;
-    min-height: 88.6vh;
+    justify-content: space-around;
     background: $bg2;
     align-items: center;
     flex-direction: column;
+    height: 100%;
 }
 
-#avatar {
-    width: 100vw;
-    height: 30vh;
-}
-
-#avatarImg {
-    height: 30vh;
+#manageUser {
+    position: absolute;
+    top: 3vh;
+    right: 0px;
+    font-size: 5vh;
 }

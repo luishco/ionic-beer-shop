@@ -9,9 +9,27 @@
 <ion-content>
   <div id="container">
     <div id="avatar">
-      <ion-avatar>
-        <img src="/assets/images/avatar.png">
+      <ion-avatar *ngIf="user.photoUrl !== undefined" class="ion-avatar">
+        <img src="{{user.photoUrl}}">
       </ion-avatar>
+      <div id="userName">{{user.name}}</div>
+    </div>
+    <div id="userInfo">
+      <div class="info">
+        <div class="info-name">Name</div>
+        <div class="info-value">{{user.name}}</div>
+      </div>
+      <div class="info">
+        <div class="info-name">CPF</div>
+        <div class="info-value">{{user.cpf}}</div>
+      </div>
+      <div class="info">
+        <div class="info-name">Address</div>
+        <div class="info-value">{{user.address}}</div>
+      </div>
+    </div>
+    <div id="manageUser">
+      <ion-icon name="cog-outline"></ion-icon>
     </div>
   </div>
 </ion-content>
