@@ -26,7 +26,8 @@ export class AuthService {
       return this.updateProfile({
         name: credentials.name,
         photoUrl: null,
-        cpf: credentials.cpf
+        cpf: credentials.cpf,
+        address: credentials.address
       })
     })
   }
@@ -35,7 +36,8 @@ export class AuthService {
     let userOptions = {
       name: profile.name,
       photoUrl: profile.photoUrl,
-      cpf: profile.cpf
+      cpf: profile.cpf,
+      address: profile.address
     }
     return this.firestore.collection('usersCollection').doc(this.user.email).set(userOptions);
   }

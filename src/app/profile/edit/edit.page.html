@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <div id="avatar">
+      <ion-avatar *ngIf="user.photoUrl !== undefined" class="ion-avatar">
+        <img src="{{user.photoUrl}}">
+      </ion-avatar>
+      <div id="userName">{{user.name}}</div>
+    </div>
+    <div id="userInfo">
+      <form [formGroup]="editForm" (ngSubmit)="editUser()">
+        <div class="info">
+          <div class="info-name">Name</div>
+          <div class="info-value"><ion-input type="text" value="{{user.name}}" formControlName="name" required class="inputFormOrange"></ion-input></div>
+        </div>
+        <div class="info">
+          <div class="info-name">CPF</div>
+          <div class="info-value"><ion-input type="text" value="{{user.cpf}}" formControlName="cpf" required class="inputFormOrange"></ion-input></div>
+        </div>
+        <div class="info">
+          <div class="info-name">Address</div>
+          <div class="info-value"><ion-input type="text" value="{{user.address}}" formControlName="cpf" required class="inputFormOrange"></ion-input></div>
+        </div>
+        <div class="info">
+          <div class="info-name"></div>
+          <div class="info-value"><ion-button expand="block" type="submit" color="light" fill="solid">SAVE</ion-button></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,22 @@
+@import '../../../global.scss';
+
+#container {
+    display: flex;
+    justify-content: space-around;
+    background: $bg2;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+#manageUser {
+    position: absolute;
+    top: 3vh;
+    right: 0px;
+    font-size: 5vh;
+}
+
+.inputFormOrange {
+    font-size: 14px;
+    text-align: left;
+}
