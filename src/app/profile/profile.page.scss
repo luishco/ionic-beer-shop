@@ -1,0 +1,19 @@
+@import '../../global.scss';
+
+#container {
+    display: flex;
+    justify-content: space-between;
+    min-height: 88.6vh;
+    background: $bg2;
+    align-items: center;
+    flex-direction: column;
+}
+
+#avatar {
+    width: 100vw;
+    height: 30vh;
+}
+
+#avatarImg {
+    height: 30vh;
+}

@@ -1,0 +1,13 @@
+@import '../../global.scss';
+
+#container {
+    position: absolute;
+    width: 100vh;
+    background-color: $beer;
+}
+
+.beer-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
