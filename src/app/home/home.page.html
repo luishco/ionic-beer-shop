@@ -28,8 +28,8 @@
       </div>
     </ion-card>
     <div class="chart">
-      <label class="total_price">R$ {{total_price}},00</label>
-      <button class="btn_pedir">Pedir</button>
+      <label class="total_price">R$ {{shop.total_price}},00</label>
+      <button class="btn_pedir" (click)="makeOrder()">Pedir</button>
     </div>
   </div>
 </ion-content>

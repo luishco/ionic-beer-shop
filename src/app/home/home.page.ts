@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ShopService } from '../services/shop.service';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +10,25 @@ import { ShopService } from '../services/shop.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  addToChart = this.shop.addToChart
-  removeFromChart = this.shop.removeFromChart
+  chart = {}
+
+  addToChart(beerName) {
+    this.chart = this.shop.addToChart(beerName);
+  }
+  removeFromChart(beerName) {
+    this.chart = this.shop.removeFromChart(beerName);
+  }
+  
+  makeOrder() {
+    this.auth.makeOrder(this.chart);
+    this.shop.resetChart();
+    this.chart = {};
+  }
+
+  ngOnInit() {
+  }
+
+  constructor(private shop: ShopService, private auth: AuthService, private userService: UserService) { }
 
   cervejas = [
     { "price": 5, "firstName": "Heineken", "name": "Heineken", "rating": "3.1", "rating_count": "(816)", "photoURL": "https://www.brejas.com.br/media/reviews/photos/thumbnail/120x120c/e0/9d/cb/579_Heineken_1277498982.jpg" }, 
@@ -22,8 +42,5 @@ export class HomePage {
     { "price": 5, "firstName": "Colorado", "name": "Colorado Appia", "rating": "3.2", "rating_count": "(460)", "photoURL": "https://www.brejas.com.br/media/reviews/photos/thumbnail/120x120c/c5/6d/3b/157_ColoradoAppia_1277311797.jpg" }, 
     { "price": 5, "firstName": "Guinness", "name": "Guinness Draught", "rating": "3.6", "rating_count": "(459)", "photoURL": "https://www.brejas.com.br/media/reviews/photos/thumbnail/120x120c/73/f9/42/248_guinness-1357330251.jpg" }
   ]
-
   
-  constructor(private shop: ShopService) { }
-
 }

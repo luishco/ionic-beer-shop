@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <ion-list>
+      <ion-list-header>
+        <h1>Pedidos</h1>
+      </ion-list-header>
+      <div *ngFor="let order of orders">
+        <ion-item *ngFor="let beer of objectKeys(order)">
+          <ion-label>
+            {{beer}} x({{order[beer]}})
+          </ion-label>
+        </ion-item>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>

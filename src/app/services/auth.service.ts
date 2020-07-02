@@ -39,12 +39,26 @@ export class AuthService {
       cpf: profile.cpf,
       address: profile.address
     }
+    this.firestore.collection('ordersCollection').doc(this.user.email).set({ orders: [] })
     return this.firestore.collection('usersCollection').doc(this.user.email).set(userOptions);
   }
 
   retrieveUserData() {
     let userRef = this.firestore.collection('usersCollection').doc(this.user.email);
     return userRef.get().then(doc => {
+      if(!doc.exists)
+        return;
+      return doc.data()
+    })
+  }
+
+  makeOrder(chart) {
+    return this.firestore.collection('ordersCollection').doc(this.user.email).update('orders', [chart])
+  }
+
+  _getOrders() {
+    let ordersRef = this.firestore.collection('ordersCollection').doc(this.user.email);
+    return ordersRef.get().then(doc => {
       if(!doc.exists)
         return;
       return doc.data()
@@ -87,10 +101,11 @@ export class AuthService {
     return this.oauthSignIn(new firebase.auth.GoogleAuthProvider(
     ));
   }
-
+  
   constructor(public afAuth: AngularFireAuth) {
     afAuth.authState.subscribe(user => {
       this.user = user;
     })
   }
+
 }
