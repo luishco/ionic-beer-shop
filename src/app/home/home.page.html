@@ -9,14 +9,23 @@
 <ion-content [fullscreen]="true">
   <div id="container">
     <ion-card *ngFor="let beer of cervejas" class="beer-card">
-      <ion-card-header>
+      <div class="thumbnail">
         <ion-thumbnail>
           <ion-img [src]="beer.photoURL"></ion-img>
         </ion-thumbnail>
+      </div>
+      <div class="description">
         <ion-card-subtitle>
           {{beer.name}}
         </ion-card-subtitle>
-      </ion-card-header>
+        <ion-card-subtitle>
+          R$ {{beer.price}},00
+        </ion-card-subtitle>
+      </div>
+      <div class="order-buttons">
+        <ion-button size="small" color="danger">+</ion-button>
+        <ion-button size="small" color="danger">-</ion-button>
+      </div>
     </ion-card>
   </div>
 </ion-content>
