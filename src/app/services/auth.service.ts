@@ -28,19 +28,24 @@ export class AuthService {
         photoUrl: null,
         cpf: credentials.cpf,
         address: credentials.address
-      })
+      }, registeredUser.user.email)
+    }).catch((err) => {
+      console.log(err);
     })
   }
 
-  updateProfile(profile) {
+  updateProfile(profile, email = '', updateOrders = true) {
     let userOptions = {
       name: profile.name,
       photoUrl: profile.photoUrl,
       cpf: profile.cpf,
       address: profile.address
     }
-    this.firestore.collection('ordersCollection').doc(this.user.email).set({ orders: [] })
-    return this.firestore.collection('usersCollection').doc(this.user.email).set(userOptions);
+    if(email === '')
+      email = this.user.email;
+    if (updateOrders)
+      this.firestore.collection('ordersCollection').doc(email).set({ orders: []});
+    return this.firestore.collection('usersCollection').doc(email).set(userOptions);
   }
 
   retrieveUserData() {

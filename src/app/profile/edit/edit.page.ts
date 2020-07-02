@@ -25,7 +25,14 @@ export class EditPage implements OnInit {
   editUser() {
     let data = this.editForm.value;
     
-    console.log(data);
+    this.auth.updateProfile({
+      name: data.name,
+      cpf: data.cpf,
+      address: data.address,
+      photoUrl: null
+    }, '', false)
+
+    this.userService.setUserData();
   }
 
   ngOnInit() {

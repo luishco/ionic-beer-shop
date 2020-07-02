@@ -12,13 +12,19 @@
       <ion-list-header>
         <h1>Pedidos</h1>
       </ion-list-header>
-      <div *ngFor="let order of orders">
-        <ion-item *ngFor="let beer of objectKeys(order)">
-          <ion-label>
-            {{beer}} x({{order[beer]}})
-          </ion-label>
-        </ion-item>
-      </div>
+      <div *ngIf="orders && orders.orders && orders.orders.length > 0; then avaible else not_avaible"></div>
+      <ng-template #avaible>
+        <div *ngFor="let order of orders.orders">
+          <ion-item *ngFor="let beer of objectKeys(order)">
+            <ion-label>
+              {{beer}} x({{order[beer]}})
+            </ion-label>
+          </ion-item>
+        </div>
+      </ng-template>
+      <ng-template #not_avaible>
+        <div>Você não fez nenhum pedido.</div>
+      </ng-template>
     </ion-list>
   </div>
 </ion-content>

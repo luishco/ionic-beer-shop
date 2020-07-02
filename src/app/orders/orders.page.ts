@@ -9,19 +9,14 @@ import { ShopService } from '../services/shop.service';
 })
 export class OrdersPage implements OnInit {
   constructor(private shop: ShopService) { }
-  orders = [
-    {
-      'Heineken': 2,
-      'Stella': 3
-    }
-  ];
+  orders = {}
   objectKeys = Object.keys
 
   ngOnInit() {
-    // this.shop.setOrders().then(() => {
-    //   this.orders = this.shop.getOrders();
-    //   console.log(this.orders)
-    // })
+    this.shop.setOrders().then(() => {
+      this.orders = this.shop.getOrders();
+      console.log(this.orders)
+    });
   }
 
 }

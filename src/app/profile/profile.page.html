@@ -9,7 +9,7 @@
 <ion-content>
   <div id="container">
     <div id="avatar">
-      <ion-avatar *ngIf="user.photoUrl !== undefined" class="ion-avatar">
+      <ion-avatar *ngIf="user.photoUrl && user.photoUrl !== undefined" class="ion-avatar">
         <img src="{{user.photoUrl}}">
       </ion-avatar>
       <div id="userName">{{user.name}}</div>

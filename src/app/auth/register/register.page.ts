@@ -34,14 +34,18 @@ export class RegisterPage implements OnInit {
       name: data.name,
       address: data.address
     };
-
-    this.auth.signUp(credentials).then(
-      () => {
+    console.log('alo galera de cowboy');
+    this.auth.signUp(credentials).then(() => {
+        console.log('hihihi');
         this.userService.setUserData(),
+        console.log('hihi');
         this.router.navigateByUrl('/home')
+        console.log('hi')
       },
       error => this.registerError = error.message
-    );
+    ).catch((err) => {
+      console.log(err);
+    });
   }
 
   ngOnInit() {
