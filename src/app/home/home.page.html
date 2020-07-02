@@ -23,9 +23,13 @@
         </ion-card-subtitle>
       </div>
       <div class="order-buttons">
-        <ion-button size="small" color="danger">+</ion-button>
-        <ion-button size="small" color="danger">-</ion-button>
+        <ion-button size="small" color="danger" (click)="addToChart(beer.firstName)">+</ion-button>
+        <ion-button size="small" color="danger" (click)="removeFromChart(beer.firstName)">-</ion-button>
       </div>
     </ion-card>
+    <div class="chart">
+      <label class="total_price">R$ {{total_price}},00</label>
+      <button class="btn_pedir">Pedir</button>
+    </div>
   </div>
 </ion-content>
